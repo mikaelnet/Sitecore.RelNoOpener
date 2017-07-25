@@ -5,7 +5,7 @@ using Sitecore.Data.Fields;
 using Sitecore.Data.Items;
 using Sitecore.Events;
 
-namespace Sitecore.RelNoOpener
+namespace Stendahls.Sc.RelNoOpener
 {
     public class RichTextSavingHandler
     {

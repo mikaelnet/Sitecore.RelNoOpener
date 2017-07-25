@@ -2,7 +2,7 @@
 using Sitecore.Diagnostics;
 using Sitecore.Pipelines.RenderField;
 
-namespace Sitecore.RelNoOpener
+namespace Stendahls.Sc.RelNoOpener
 {
     public class RenderLink
     {
