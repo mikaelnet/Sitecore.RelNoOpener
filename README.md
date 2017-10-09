@@ -12,7 +12,7 @@ The module is a code example of how to solve this in Sitecore. It adds the `rel=
 Build the solution and copy the .dll and .config files into your solution.
 
 ## Compatibility
-This code is pretty generic and will probably work on most versions of Sitecore, though it's not very well tested. You might need to change the version reference to Sitecore.Kernel.
+This code is pretty generic and will probably work on most versions of Sitecore, though it's not very well tested. You might need to change the version reference to Sitecore.Kernel and HtmlAgilityPack. When possible, use the same version of HtmlAgilityPack as your Sitecore version uses, or you'd have to add an assembly binding reference in your web.config.
 
 
 

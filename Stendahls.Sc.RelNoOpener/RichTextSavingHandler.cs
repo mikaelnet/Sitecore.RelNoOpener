@@ -26,7 +26,14 @@ namespace Stendahls.Sc.RelNoOpener
                 var templateFieldItem = templateItem.GetField(field.ID);
                 if (!string.IsNullOrWhiteSpace(templateFieldItem?.Source))
                 {
-                    field.Value = UpdateRelNoOpener(field.Value);
+                    try
+                    {
+                        field.Value = UpdateRelNoOpener(field.Value);
+                    }
+                    catch (Exception ex)
+                    {
+                        Sitecore.Diagnostics.Log.Error($"Unable to apply rel=\"noopener\" on rich text field {field.ID} for item {savingItem.Uri}", ex, this);
+                    }
                 }
             }
         }
