@@ -13,7 +13,7 @@ namespace Stendahls.Sc.RelNoOpener
             if (!args.FieldTypeKey.StartsWith("general link"))
                 return;
 
-            if (args.FieldValue.Contains("external") && args.FieldValue.Contains("_blank") &&
+            if (args.FieldValue.Contains("external") && args.FieldValue.Contains("target") &&
                 (args.FieldValue.Contains("http://") || args.FieldValue.Contains("https://")))
             {
                 if (!args.Parameters.ContainsKey("rel"))
