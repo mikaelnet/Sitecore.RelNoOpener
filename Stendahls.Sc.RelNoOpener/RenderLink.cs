@@ -8,7 +8,7 @@ namespace Stendahls.Sc.RelNoOpener
     {
         public void Process(RenderFieldArgs args)
         {
-            Assert.ArgumentNotNull((object)args, "args");
+            Assert.ArgumentNotNull(args, "args");
 
             if (!args.FieldTypeKey.StartsWith("general link"))
                 return;
@@ -17,18 +17,9 @@ namespace Stendahls.Sc.RelNoOpener
                 (args.FieldValue.Contains("http://") || args.FieldValue.Contains("https://")))
             {
                 if (!args.Parameters.ContainsKey("rel"))
-                {
-                    args.Parameters.Add("rel", "noopener");
-                }
+                    args.Parameters.Add("rel", SettingsHelper.RelString);
                 else
-                {
-                    var rel = args.Parameters["rel"];
-                    if (string.IsNullOrWhiteSpace(rel))
-                        rel = "noopener";
-                    else if (rel.IndexOf("noopener", StringComparison.InvariantCultureIgnoreCase) < 0)
-                        rel = $"{rel} noopener";
-                    args.Parameters["rel"] = rel;
-                }
+                    args.Parameters["rel"] = SettingsHelper.AddRelString(args.Parameters["rel"]);
             }
         }
     }

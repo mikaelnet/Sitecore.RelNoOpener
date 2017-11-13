@@ -32,7 +32,7 @@ namespace Stendahls.Sc.RelNoOpener
                     }
                     catch (Exception ex)
                     {
-                        Sitecore.Diagnostics.Log.Error($"Unable to apply rel=\"noopener\" on rich text field {field.ID} for item {savingItem.Uri}", ex, this);
+                        Sitecore.Diagnostics.Log.Error($"Unable to apply rel=\"{SettingsHelper.RelString}\" on rich text field {field.ID} for item {savingItem.Uri}", ex, this);
                     }
                 }
             }
@@ -62,14 +62,10 @@ namespace Stendahls.Sc.RelNoOpener
                     continue;
 
                 var rel = aNode.GetAttributeValue("rel", null);
-                if (rel == null)
+                var newRel = SettingsHelper.AddRelString(rel);
+                if (newRel != rel)
                 {
-                    aNode.SetAttributeValue("rel", "noopener");
-                    isModified = true;
-                }
-                else if (rel.IndexOf("noopener", StringComparison.InvariantCultureIgnoreCase) < 0)
-                {
-                    aNode.SetAttributeValue("rel", $"{rel} noopener".Trim());
+                    aNode.SetAttributeValue("rel", newRel);
                     isModified = true;
                 }
             }

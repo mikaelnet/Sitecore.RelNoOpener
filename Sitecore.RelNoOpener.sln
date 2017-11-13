@@ -1,9 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.12
+VisualStudioVersion = 15.0.27004.2008
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stendahls.Sc.RelNoOpener", "Stendahls.Sc.RelNoOpener\Stendahls.Sc.RelNoOpener.csproj", "{D9738C5A-7FA9-4B17-AEEB-3A2B1732BECC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{092210DA-8887-4CD0-A585-68AD0DEEECB6}"
+	ProjectSection(SolutionItems) = preProject
+		Stendahls RelNoOpener.package = Stendahls RelNoOpener.package
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,5 +23,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DCFAABA9-2BC0-48E1-B4C1-A370266A55F5}
 	EndGlobalSection
 EndGlobal
