@@ -16,3 +16,12 @@ Build the solution and copy the .dll and .config files into your solution. Alter
 ## Compatibility
 This code is pretty generic and will probably work on most versions of Sitecore, though it's not very well tested. You might need to change the version reference to Sitecore.Kernel and HtmlAgilityPack. When possible, use the same version of HtmlAgilityPack as your Sitecore version uses, or you'd have to add an assembly binding reference in your web.config.
 
+## Pre-compiled Sitecore package release notes
+### 1.0.1
+* `rel="noopener"` is not added when linking to `_top`
+* `rel="noopener"` is now also added to protocol-independent target links
+* Added a try/catch statement to ensure this module never throws an exception at runtime
+* Package is now built in release mode
+
+### 1.0
+Initial release
