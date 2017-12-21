@@ -3,10 +3,10 @@
     <metadata>
       <PackageName>Stendahls RelNoOpener</PackageName>
       <Author>Mikael Högberg</Author>
-      <Version>1.0</Version>
+      <Version>1.0.1</Version>
       <Revision />
       <License>Free to use. Please ping me on twitter @mikaelnet if you find it useful.</License>
-      <Comment />
+      <Comment>This package adds rel="noopener" (and optionally noreferrer) to external links opening in new windows. </Comment>
       <Attributes />
       <Readme />
       <Publisher>Stendahls</Publisher>

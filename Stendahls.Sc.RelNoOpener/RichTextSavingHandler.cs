@@ -32,7 +32,7 @@ namespace Stendahls.Sc.RelNoOpener
                     }
                     catch (Exception ex)
                     {
-                        Sitecore.Diagnostics.Log.Error($"Unable to apply rel=\"{SettingsHelper.RelString}\" on rich text field {field.ID} for item {savingItem.Uri}", ex, this);
+                        Sitecore.Diagnostics.Log.Error($"Unable to apply rel=\"{SettingsHelper.RelString}\" on rich text field {field.ID} for item {savingItem.Uri}", ex, nameof(OnItemSaving));
                     }
                 }
             }
@@ -50,15 +50,22 @@ namespace Stendahls.Sc.RelNoOpener
             bool isModified = false;
             foreach (var aNode in linkNodes)
             {
+                // The rel attribute is only needed when opening new windows. 
+                // "_self" and "_top" will replace the current page in the browser, 
+                // so it's therefore not vunerable.
                 var target = aNode.GetAttributeValue("target", null);
-                if (string.IsNullOrWhiteSpace(target) || target == "_self")
+                if (string.IsNullOrWhiteSpace(target) || target == "_self" || target == "_top")
                     continue;
 
                 var href = aNode.GetAttributeValue("href", null);
                 if (string.IsNullOrWhiteSpace(href))
                     continue;
 
-                if (!href.StartsWith("http://", StringComparison.InvariantCultureIgnoreCase) && !href.StartsWith("https://", StringComparison.CurrentCultureIgnoreCase))
+                // This is only needed when linking to external sites. Need to support http,
+                // https and protocol independent links.
+                if (!href.StartsWith("http://", StringComparison.InvariantCultureIgnoreCase) && 
+                    !href.StartsWith("https://", StringComparison.InvariantCultureIgnoreCase) &&
+                    !href.StartsWith("//", StringComparison.InvariantCulture))
                     continue;
 
                 var rel = aNode.GetAttributeValue("rel", null);

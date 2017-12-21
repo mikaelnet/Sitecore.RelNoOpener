@@ -13,6 +13,7 @@ namespace Stendahls.Sc.RelNoOpener
             if (string.IsNullOrWhiteSpace(rel))
                 return RelString;
 
+            // Ensure any existing rel attributes are preserved, such as rel="nofollow" etc.
             if (rel.IndexOf("noopener", StringComparison.InvariantCultureIgnoreCase) < 0)
                 rel = $"{rel} noopener".Trim();
             if (RenderNoReferrer && rel.IndexOf("noreferrer", StringComparison.InvariantCultureIgnoreCase) < 0)
